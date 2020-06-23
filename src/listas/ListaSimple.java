@@ -40,14 +40,85 @@ public class ListaSimple {
         while(aux != null) {
             Usuario usuario = (Usuario)aux.getObject();
             System.out.println("==============================");
-            System.out.println(usuario.getNombre());
-            System.out.println(usuario.getApellido());
-            System.out.println(usuario.getNickname());
-            System.out.println(usuario.getPassword());
-            System.out.println(usuario.getFechaNacimiento());
+            System.out.println(usuario);
             System.out.println("==============================");
             aux = aux.getSiguiente();
         }
     }
+    
+    //APROBADO POR RAFITA :3
+    public Usuario buscar(String nickname) {
+        NodoSimple aux = primero;
+        while(aux != null) {
+            Usuario usuario = (Usuario)aux.getObject();
+            if(usuario.getNickname().equals(nickname)) {
+                return usuario;
+            } else {
+                aux = aux.getSiguiente();
+            }
+        }
+        return null;
+    }
+    
+    //BUSCAR NEL :v
+    public void buscar2(String nickname) {
+        NodoSimple aux = primero;
+        while(aux != null) {
+            Usuario usuario = (Usuario)aux.getObject();
+            if(usuario.getNickname().equals(nickname)) {
+                System.out.println(usuario);
+                return;
+            } else {
+                aux = aux.getSiguiente();
+            }
+        }
+        System.out.println("USUARIO NO ENCONTRADO :(");
+    }
+    
+    public boolean autenticar(String nickname, String password) {
+        NodoSimple aux = primero;
+        while(aux != null) {
+            Usuario usuario = (Usuario)aux.getObject();
+            if(usuario.getNickname().equals(nickname) && usuario.getPassword().equals(password)) {
+                return true;
+            } else {
+                aux = aux.getSiguiente();
+            }
+        }
+        return false;
+    }
+    
+    public Usuario autenticar2(String nickname, String password) {
+        NodoSimple aux = primero;
+        while(aux != null) {
+            Usuario usuario = (Usuario)aux.getObject();
+            if(usuario.getNickname().equals(nickname) && usuario.getPassword().equals(password)) {
+                return usuario;
+            } else {
+                aux = aux.getSiguiente();
+            }
+        }
+        return null;
+    }
+    
+    public void eliminar(String nickname) {
+        if(buscar(nickname) != null) {
+            Usuario usuario = (Usuario)primero.getObject();
+            if(usuario.getNickname().equals(nickname)) {
+                primero = primero.getSiguiente();
+            } else {
+                NodoSimple aux = primero;
+                Usuario auxU = (Usuario)aux.getSiguiente().getObject();
+                while(!auxU.getNickname().equals(nickname)) {
+                    aux = aux.getSiguiente(); 
+                    auxU = (Usuario)aux.getSiguiente().getSiguiente().getObject();
+                }
+                NodoSimple siguiente = aux.getSiguiente().getSiguiente();
+                aux.setSiguiente(siguiente);
+            }
+        }
+    }
+    
+    
     
 }

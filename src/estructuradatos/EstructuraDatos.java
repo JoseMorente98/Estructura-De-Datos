@@ -30,6 +30,40 @@ public class EstructuraDatos {
         listaSimple.insertar(usuario2);
         listaSimple.insertar(usuario3);
         listaSimple.mostrar(); 
+        Usuario buscarUsuario = listaSimple.buscar("dasdas");
+        if(buscarUsuario != null) {
+            System.out.println(buscarUsuario);//mostrar ventana
+        } else {
+            //mostrar alerta que diga que no lo encontro
+            System.out.println("Usuario no encontrado D:");
+        }
+        
+        listaSimple.buscar2("elmentiras");
+        
+        if(listaSimple.autenticar("elmentiras", "12345sds")) {
+            System.out.println("Usuario autenticado :D");
+            //MOSTRAR MENU
+        } else {
+            System.out.println("Usuario o contraseña incorrectos D:");
+            //MOSTRAR ALERTA
+        }
+        
+        Usuario autenticarUsuario = listaSimple.autenticar2("elmentiras", "12345sds");
+        
+        if(autenticarUsuario != null) {
+            System.out.println("Usuario autenticado :D");
+        } else {
+            System.out.println("Usuario o contraseña incorrectos D:");
+        }
+        
+        System.out.println("==========================ELIMINAR====================");
+        listaSimple.eliminar("rafita");
+        listaSimple.mostrar();
+        
+        System.out.println("==========================ELIMINAR====================");
+        listaSimple.eliminar("elmentiras");
+        listaSimple.mostrar();
+        
     }
     
 }

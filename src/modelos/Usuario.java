@@ -98,5 +98,17 @@ public class Usuario {
     public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
+
+    @Override
+    public String toString() {
+        return "Usuario: {\n"+
+            "\tnombre: " + nombre+ "\n" +
+            "\tapellido: " + apellido+   "\n" +
+            "\tnickname: " + nickname+   "\n" +
+            "\tfecha_nacimiento: " + fechaNacimiento+ 
+            "\n} ";
+    }
+    
+    
     
 }
