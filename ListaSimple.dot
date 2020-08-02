@@ -1,0 +1,12 @@
+digraph grafica{
+    graph[label="Lista Simple", labelloc=t, fontsize=20, compound=true];
+    rankdir = LR;
+    node [shape=star, fontcolor = black, style = filled, color = skyblue1];
+	Nodo0 [label ="Usuario: rafita\n Nombre Completo: Rafael Morente "]
+	Nodo0->Nodo1
+	Nodo1 [label ="Usuario: pao\n Nombre Completo: Paola Gramajo "]
+	Nodo1->Nodo2
+	Nodo2 [label ="Usuario: elmentiras\n Nombre Completo: Pablo Morataya "]
+	Nodo2->Nodo3
+	Nodo3 [label ="Usuario: elantonio\n Nombre Completo: Angel Lux "]
+}

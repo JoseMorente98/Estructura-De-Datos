@@ -24,6 +24,16 @@ public class EstructuraDatos {
         Usuario usuario = new Usuario("Rafael", "Morente", "rafita", "12345", new Date(1998, 10, 2));
         Usuario usuario2 = new Usuario("Paola", "Gramajo", "pao", "12345", new Date(2001, 10, 2));
         Usuario usuario3 = new Usuario("Pablo", "Morataya", "elmentiras", "12345", new Date(1998, 10, 2));
+        Usuario usuario4 = new Usuario("Angel", "Lux", "elantonio", "12345", new Date(1998, 10, 2));
+        listaSimple.insertar(usuario);
+        listaSimple.insertar(usuario2);
+        listaSimple.insertar(usuario3);
+        listaSimple.insertar(usuario4);
+        
+        listaSimple.graficar();
+        /*Usuario usuario = new Usuario("Rafael", "Morente", "rafita", "12345", new Date(1998, 10, 2));
+        Usuario usuario2 = new Usuario("Paola", "Gramajo", "pao", "12345", new Date(2001, 10, 2));
+        Usuario usuario3 = new Usuario("Pablo", "Morataya", "elmentiras", "12345", new Date(1998, 10, 2));
 
         
         listaSimple.insertar(usuario);
@@ -62,7 +72,7 @@ public class EstructuraDatos {
         
         System.out.println("==========================ELIMINAR====================");
         listaSimple.eliminar("elmentiras");
-        listaSimple.mostrar();
+        listaSimple.mostrar();*/
         
     }
     

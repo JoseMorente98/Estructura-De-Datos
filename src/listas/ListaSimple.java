@@ -5,6 +5,10 @@
  */
 package listas;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import modelos.Usuario;
 import nodos.NodoSimple;
 
@@ -117,6 +121,45 @@ public class ListaSimple {
                 aux.setSiguiente(siguiente);
             }
         }
+    }
+    
+    public void graficar() {
+        String texto = "";
+        
+        texto += "digraph grafica{\n" +
+        "    graph[label=\"Lista Simple\", labelloc=t, fontsize=20, compound=true];\n" +
+        "    rankdir = LR;\n" +
+        "    node [shape=star, fontcolor = black, style = filled, color = skyblue1];\n";
+        
+        //PARTE DINAMICA
+        NodoSimple aux = primero;
+        int contador = 0;
+        while(aux != null) {
+            Usuario usuario = (Usuario)aux.getObject();
+            texto += "\tNodo"+contador+" [label =\"Usuario: "+usuario.getNickname()+"\\n Nombre Completo: "+usuario.getNombre()+" "+usuario.getApellido()+" \"]\n";
+            if(aux.getSiguiente() != null) {
+                texto += "\tNodo"+contador+"->Nodo"+(contador+1) + "\n";
+            }
+            aux = aux.getSiguiente();
+            contador++;
+        }
+        
+        texto += "}";
+        System.out.println(texto);
+        
+        try {
+            
+            //ESCRIBIR DENTRO DE ARCHIVO
+            FileWriter fileWriter = new FileWriter("ListaSimple.dot");
+            fileWriter.write(texto);
+            fileWriter.close();
+            //EJECUTAR COMANDO
+            Runtime.getRuntime().exec("dot -Tjpg -o ListaSimple.png ListaSimple.dot");
+        } catch (IOException ex) {
+            Logger.getLogger(ListaSimple.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
     }
     
     
